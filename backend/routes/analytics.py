@@ -7,9 +7,12 @@ import base64
 from db import init_db # by SHUBHI added this line to import init_db
 router = APIRouter()
 
-async def get_items_collection():
-    from db import init_db
-    return init_db()["items_collection"]
+#async def get_items_collection():
+async def get_items_collection(db=Depends(init_db)): #  by SHUBHI changed the above as this i.e. corrected dependency injection for database connection
+   # from db import init_db    || by SHUBHI commented out this line
+    #return init_db()["items_collection"]  || by SHUBHI commented out this line
+    return db["items_collection"] # by SHUBHI changed above as this
+
 
 async def get_users_collection():
     from db import init_db
@@ -71,3 +74,4 @@ async def get_analytics():
     })
 
 # by SHUBHI added the line from db import init_db to import init_db
+# by SHUBHI changed async def get_items_collection(): to async def get_items_collection(db=Depends(init_db)):
