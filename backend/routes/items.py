@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from models import Item
 from bson import ObjectId
-
-router = {}
+#changed router={} to router=APIRouter()
+router = APIRouter()
 
 async def get_items_collection():
     from db import init_db
