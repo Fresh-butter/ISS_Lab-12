@@ -47,8 +47,8 @@ async def get_question():
         "text": question["text"],
         "options": question["options"]
     }
-
-@router.get("/answer")
+# changed the request from get to post of function submit_answer by navneet in quiz.py
+@router.post("/answer")
 async def submit_answer(data: dict):
     question_id = data.get("id")
     answer = data.get("answer")
