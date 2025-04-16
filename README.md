@@ -43,10 +43,10 @@
 | 4   | fixed updated DOCTYPE and charset to HTML5 in index.html       |               |              |
 | 5   | fixed added missing navigation menu to analytics.html          |               |              |
 | 6   | corrected Content-Type header to application/json in items.js  |               |              |
-| 7   |                                                                |               |              |
-| 8   |                                                                |               |              |
-| 9   |                                                                |               |              |
-| 10  |                                                                |               |              |
+| 7   | corrected @router.delete("/{item_id}/{item_details}")          |Vishal Patel   |Vishal Patel  |
+| 8   | corrected userCounts to userCount                              |Vishal Patel   |Vishal Patel  |
+| 9   | corrected baseURL in analytics                                 |Vishal Patel   |Vishal Patel  |
+| 10  | Added import as users_router                                   |Vishal Patel   |Vishal Patel  |
 | 11  |                                                                |               |              |
 | 12  |                                                                |               |              |
 | 13  |                                                                |               |              |
