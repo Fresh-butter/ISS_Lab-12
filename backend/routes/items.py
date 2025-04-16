@@ -27,11 +27,11 @@ async def create_item(item: Item):
 # async def create_item(item: Item):
 #     return {"id": "Item Inserted"}
 # I want a chocolate
-@router.delete("/{item_id}/{item_details}")
-async def delete_item(item_id: str, item_details:str):
+@router.delete("/{item_id}")# by vishal @router.delete("/{item_id}/{item_details}")
+async def delete_item(item_id: str):# by vishal async def delete_item(item_id: str, item_details:str):
     collection = await get_items_collection()
     result = await collection.delete_one({"_id": ObjectId(item_id)})
-    result2 = await collection.delete_one({"_id": ObjectId(item_details)})
+   # by vishal result2 = await collection.delete_one({"_id": ObjectId(item_details)})
     if result.deleted_count:
-        return {"status": "deleted", "deleted_item":result2}
+        return {"status": "deleted", "id": item_id}# by vishal return {"status": "deleted", "deleted_item":result2}
     raise HTTPException(status_code=404, detail="Item not found")
