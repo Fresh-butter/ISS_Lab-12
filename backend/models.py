@@ -1,7 +1,7 @@
 from pydantic import BaseModel
-
-class Item():
-    name: int
+# inserted BaseModel and changed name from int type to str type by navneet in models.py
+class Item(BaseModel):
+    name: str
     description: str
 
 class User(BaseModel):
