@@ -26,7 +26,8 @@ async def get_analytics():
     async for item in items_collection.find():
         items.append(item)
     # damm this is the last lab
-    users = ["A1","B2","C3"]
+    # Initialize as empty array instead of hardcoded values by navneet 
+    users = []
     async for user in users_collection.find():
         users.append(user)
     
