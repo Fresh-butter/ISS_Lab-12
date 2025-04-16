@@ -14,9 +14,10 @@ async def get_items_collection(db=Depends(init_db)): #  by SHUBHI changed the ab
     return db["items_collection"] # by SHUBHI changed above as this
 
 
-async def get_users_collection():
-    from db import init_db
-    return init_db()["users_collection"]
+async def get_users_collection(db=Depends(init_db)):
+   # from db import init_db   || commented out by SHUBHI
+    return db["users_collection"]
+
 
 @router.get("/")
 async def get_analytics():
@@ -70,8 +71,9 @@ async def get_analytics():
     plt.close()
     
     return JSONResponse({
-        "stats": stats
+        "stats": stats, #  by SHUBHI added comma, it is needed to write the content below which i added
+        "plot_image_base64": image_base64  #by SHUBHI this was missing so added this
     })
-
 # by SHUBHI added the line from db import init_db to import init_db
 # by SHUBHI changed async def get_items_collection(): to async def get_items_collection(db=Depends(init_db)):
+# by SHUBHI added ,"plot_image_base64": image_base64 inside return JSONResponse
