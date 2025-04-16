@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 import base64
-
+from db import init_db # by SHUBHI added this line to import init_db
 router = APIRouter()
 
 async def get_items_collection():
@@ -69,3 +69,5 @@ async def get_analytics():
     return JSONResponse({
         "stats": stats
     })
+
+# by SHUBHI added the line from db import init_db to import init_db
