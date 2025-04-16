@@ -38,11 +38,11 @@
 | ID  | Issue Description                                              | Identified By | Fixed By     |
 |-----|----------------------------------------------------------------|---------------|--------------|
 | 1   | Style.css is not filled                                        |Prashant Vinod |Prashant Vinod|
-| 2   | fixed added missing .container div in items.html               |               |              |
-| 3   | fixed used correct scripts/profile.js path in profile.html     |               |              |
-| 4   | fixed updated DOCTYPE and charset to HTML5 in index.html       |               |              |
-| 5   | fixed added missing navigation menu to analytics.html          |               |              |
-| 6   | corrected Content-Type header to application/json in items.js  |               |              |
+| 2   | fixed added missing .container div in items.html               |Prashant Vinod |Prashant Vinod|
+| 3   | fixed used correct scripts/profile.js path in profile.html     |Prashant Vinod |Prashant Vinod|
+| 4   | fixed updated DOCTYPE and charset to HTML5 in index.html       |Prashant Vinod |Prashant Vinod|
+| 5   | fixed added missing navigation menu to analytics.html          |Prashant Vinod |Prashant Vinod|
+| 6   | corrected Content-Type header to application/json in items.js  |Prashant Vinod |Prashant Vinod|
 | 7   | corrected @router.delete("/{item_id}/{item_details}")          |Vishal Patel   |Vishal Patel  |
 | 8   | corrected userCounts to userCount                              |Vishal Patel   |Vishal Patel  |
 | 9   | corrected baseURL in analytics                                 |Vishal Patel   |Vishal Patel  |
