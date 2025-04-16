@@ -8,7 +8,7 @@ async def get_users_collection():
     from db import init_db
     return init_db()["users_collection"]
 
-@router.post("/")
+@router.get("/") # Akshat changed post to get.
 async def get_users():
     collection = await get_users_collection()
     users = []
