@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from models import Item
 from bson import ObjectId
-#changed router={} to router=APIRouter()
+#changed router={} to router=APIRouter() by Navneet
 router = APIRouter()
 
 async def get_items_collection():
@@ -22,10 +22,10 @@ async def create_item(item: Item):
     collection = await get_items_collection()
     result = await collection.insert_one(item.dict())
     return {"id": str(result.inserted_id)}
-
-@router.post("/")
-async def create_item(item: Item):
-    return {"id": "Item Inserted"}
+# commented the second create_item function by navneet
+# @router.post("/")
+# async def create_item(item: Item):
+#     return {"id": "Item Inserted"}
 # I want a chocolate
 @router.delete("/{item_id}/{item_details}")
 async def delete_item(item_id: str, item_details:str):
