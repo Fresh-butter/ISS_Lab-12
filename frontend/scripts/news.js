@@ -66,3 +66,16 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
 
 
 loadNews();
+
+// added event listeners for search and source change in news.js by Navneet
+document.getElementById("search").addEventListener("input", (e) => {
+  const searchTerm = e.target.value;
+  const source = document.getElementById("source").value;
+  loadNews(searchTerm, source, false);
+});
+
+document.getElementById("source").addEventListener("change", (e) => {
+  const source = e.target.value;
+  const searchTerm = document.getElementById("search").value;
+  loadNews(searchTerm, source, true);
+});
