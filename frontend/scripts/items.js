@@ -24,7 +24,7 @@ async function loadItems(searchTerm = "") {
 }
 
 async function deleteItem(id) {
-  await fetch(`${baseURL}/items/${id}`, { method: "POST" });
+  await fetch(`${baseURL}/items/${id}`, { method: "DELETE" }); // by SHUBHI: mistake-POST corrected- changed from POST to DELETE
   loadItems(document.getElementById("search").value); 
 }
 
@@ -46,3 +46,10 @@ document.getElementById("itemForm").addEventListener("submit", async (e) => {
 });
 
 loadItems();
+
+// by SHUBHI in the block
+// async function deleteItem(id) {
+//   await fetch(`${baseURL}/items/${id}`, { method: "DELETE" }); // by SHUBHI: mistake-POST corrected- changed from POST to DELETE
+//   loadItems(document.getElementById("search").value); 
+// }
+// changed POST to DELETE

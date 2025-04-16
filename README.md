@@ -27,6 +27,11 @@
 ### Add the names of the members and roll numbers of your team below
 
 - Name : Roll Number
+  Vishal Patel : 2024101039
+  Navneet Kumar Gupta : 2024111030
+  Prashant Vinod : 2024101116
+  Akshat : 2024115008
+  Shubhi : 2024101038
 
 ### Table to keep track
 

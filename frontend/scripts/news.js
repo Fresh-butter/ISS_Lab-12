@@ -9,10 +9,10 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
   const list = document.getElementById("newsList");
   const loading = document.getElementById("loading");
   
-  if (reset) {
-    allArticles = [];
-    list.innerHTML = "";
-  }
+  // Always clear the old articles before loading new ones
+allArticles = []; // Akshat
+if (reset) list.innerHTML = ""; // Akshat 
+
   
   loading.style.display = "block";
   
@@ -24,28 +24,22 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
       if (!res.ok) throw new Error(`Failed to fetch ${feed.name}`);
       const data = await res.json();
       
-      const articles = (data.items || []).map(item => ({
-        title: item.title || "No title",
-        description: item.description || "No description",
-        url: item.link || "#",
-        source: feed.name.toUpperCase(),
-        pubDate: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : "Unknown"
-      }));
-      
+// Filter articles from each feed based on search term Akshat
+const filtered = searchTerm
+  ? articles.filter(article =>
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  : articles;
+
+allArticles.push(...filtered); // Push filtered articles only Akshat
       allArticles.push(...articles);
     }
     
-    const filteredArticles = searchTerm
-      ? allArticles.filter(article =>
-          article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          article.description.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      : allArticles;
-    
-    document.getElementById("articleCount").textContent = `Total articles: ${filteredArticles.length}`;
-    // OPINION: Javascript syntax is stupid
-    list.innerHTML = "";
-    filteredArticles.forEach(article => {
+    // Update total article count and render filtered articles directly from allArticles
+document.getElementById("articleCount").textContent = `Total articles: ${allArticles.length}`; //Akshat
+list.innerHTML = ""; //Akshat
+allArticles.forEach(article => {// Akshat
       const div = document.createElement("div");
       div.className = "news-item";
       div.innerHTML = `
@@ -66,3 +60,16 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
 
 
 loadNews();
+
+// added event listeners for search and source change in news.js by Navneet
+document.getElementById("search").addEventListener("input", (e) => {
+  const searchTerm = e.target.value;
+  const source = document.getElementById("source").value;
+  loadNews(searchTerm, source, false);
+});
+
+document.getElementById("source").addEventListener("change", (e) => {
+  const source = e.target.value;
+  const searchTerm = document.getElementById("search").value;
+  loadNews(searchTerm, source, true);
+});
